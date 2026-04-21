@@ -32,18 +32,16 @@
         modalImg.src = src;
     }
     
-    function initImagePreview() {
-        const clickableImages = document.querySelectorAll('.clickable-image');
-        clickableImages.forEach(img => {
-            // 避免重复绑定
-            img.removeEventListener('click', handleImageClick);
-            img.addEventListener('click', handleImageClick);
-        });
-    }
-    
     function handleImageClick(e) {
         e.stopPropagation();
         openModal(this.src);
+    }
+    
+    function initImagePreview() {
+        document.querySelectorAll('.clickable-image').forEach(img => {
+            img.removeEventListener('click', handleImageClick);
+            img.addEventListener('click', handleImageClick);
+        });
     }
     
     initImagePreview();
@@ -69,7 +67,7 @@
         }
     });
 
-    // ========== 修复版轮播图 ==========
+    // ========== 轮播图 (已修复) ==========
     const carousel = document.getElementById('caseCarousel');
     if (carousel) {
         const slidesContainer = carousel.querySelector('.carousel-slides');
@@ -82,7 +80,7 @@
         const totalSlides = slides.length;
         let autoplayInterval;
         
-        // 清除旧指示点
+        // 生成指示点
         dotsContainer.innerHTML = '';
         for (let i = 0; i < totalSlides; i++) {
             const dot = document.createElement('button');
@@ -97,23 +95,14 @@
         const dots = Array.from(dotsContainer.children);
         
         function updateCarousel() {
-            // 确保 currentIndex 在有效范围内
-            if (currentIndex < 0) currentIndex = 0;
-            if (currentIndex >= totalSlides) currentIndex = totalSlides - 1;
-            
             slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
             dots.forEach((dot, idx) => {
-                if (idx === currentIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+                dot.classList.toggle('active', idx === currentIndex);
             });
         }
         
         function goToSlide(index) {
-            currentIndex = index;
+            currentIndex = Math.min(Math.max(index, 0), totalSlides - 1);
             updateCarousel();
             resetAutoplay();
         }
@@ -147,22 +136,17 @@
             startAutoplay();
         }
         
-        // 绑定事件
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
         
-        // 自动轮播
         startAutoplay();
         
-        // 悬停控制
         carousel.addEventListener('mouseenter', stopAutoplay);
         carousel.addEventListener('mouseleave', startAutoplay);
         
-        // 初始化显示
         updateCarousel();
         
-        // 确保轮播图内图片也可点击放大（已经通过 initImagePreview 绑定，但若轮播图是后生成的也无妨）
-        // 重新扫描一次点击图片（以防万一）
+        // 确保轮播图内图片的点击放大功能
         setTimeout(initImagePreview, 100);
     }
 })();

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AI数字人智播系统 - 启跃文化传媒</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="启跃AI数字人直播系统，7×24小时无人直播，降本增效，赋能百姓开启数字人直播新时代。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 页面全局 */
+        .page-banner {
+            text-align: center;
+            padding: 60px 0 30px;
+        }
+        .page-banner h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .page-banner .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* 四列价值卡片 */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .value-card {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.2s;
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: #ffffff;
+        }
+        .value-card .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .value-card h3 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .value-card p {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* 板块标题 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .section-title .num {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        /* 图片网格 */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        .image-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .image-grid img:hover {
+            transform: scale(1.03);
+            border-color: #ffffff;
+        }
+
+        /* 功能文字卡片 */
+        .feature-text-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        .feature-text-card {
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.2s;
+        }
+        .feature-text-card:hover {
+            transform: translateY(-3px);
+            border-color: #ffffff;
+        }
+        .feature-text-card h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .feature-text-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-text-card ul li {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .feature-text-card ul li:last-child {
+            border-bottom: none;
+        }
+        .feature-text-card ul li::before {
+            content: "▸ ";
+            color: #ffffff;
+        }
+
+        /* 底部金句 */
+        .golden-quote {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+        }
+        .golden-quote p {
+            font-size: 1.4rem;
+            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* 轮播图容器（用于形象采集18张图） */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-track img {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        @media (max-width: 640px) {
+            .carousel-track img {
+                height: 250px;
+            }
+        }
+
+        .back-link-container {
+            text-align: center;
+            padding: 20px 0 40px;
+        }
+        .back-link {
+            color: #ffffff;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="启跃文化传媒 Logo" onerror="this.style.display='none'">
+                <span>启跃文化传媒</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">首页</a>
+                <a href="index.html#about">公司简介</a>
+                <a href="index.html#services">核心业务</a>
+                <a href="index.html#cases">助农案例</a>
+                <a href="index.html#gallery">公司实景</a>
+                <a href="news-list.html">新闻资讯</a>
+                <a href="index.html#contact" class="btn-contact">联系我们</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- 顶部横幅 -->
+    <div class="container page-banner">
+        <span class="section-tag">核心业务</span>
+        <h1>AI数字人智播系统</h1>
+        <p class="subtitle">虚拟人形象 + AI内容生成 + 全自动开播 + 实时互动 + 多平台分发 + 数据复盘<br>实现7×24小时无人直播，降本增效、稳定合规，开启数字人直播新时代。</p>
+    </div>
+
+    <!-- 核心价值四列卡片 -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">💰</div>
+                    <h3>降本</h3>
+                    <p>节省主播人力成本60%-80%，无需场地/设备/住宿</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>提效</h3>
+                    <p>7×24小时开播，效率提升3-5倍，夜间成交占比显著提升</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📈</div>
+                    <h3>增收</h3>
+                    <p>互动率+340%、转化率+35%，线索转化提升50%+</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🛡️</div>
+                    <h3>稳定</h3>
+                    <p>主播零流失、状态零波动、内容零违规，流量持续沉淀</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一、数字人形象定制（18张图用轮播） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">一</span>数字人形象定制 —— “长什么样”</h2>
+                <p style="color:rgba(255,255,255,0.8);">2D/3D海量模板 · 真人1:1克隆 · 声音复刻 · 表情动作自然流畅</p>
+            </div>
+            <!-- 轮播图 -->
+            <div class="carousel-wrapper" id="avatarCarousel">
+                <div class="carousel-track" id="avatarTrack">
+                    <!-- 18张图，路径请根据实际文件名修改 -->
+                </div>
+                <button class="carousel-btn prev" onclick="avatarPrev()" style="position:absolute; left:15px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.25); border:none; color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; backdrop-filter:blur(4px); z-index:5;">‹</button>
+                <button class="carousel-btn next" onclick="avatarNext()" style="position:absolute; right:15px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.25); border:none; color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; backdrop-filter:blur(4px); z-index:5;">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 二、AI内容智能生成（6张功能图） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">二</span>AI内容智能生成 —— “说什么”</h2>
+                <p style="color:rgba(255,255,255,0.8);">脚本自动生成 · 话术实时改写 · 多语种/方言 · 违禁词过滤</p>
+            </div>
+<div class="image-grid">
+    <img src="img/ai-live/feature-01.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍1'">
+    <img src="img/ai-live/feature-02.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍2'">
+    <img src="img/ai-live/feature-03.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍3'">
+    <img src="img/ai-live/feature-04.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍4'">
+    <img src="img/ai-live/feature-05.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍5'">
+    <img src="img/ai-live/feature-06.png" alt="AI内容生成" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=功能介绍6'">
+</div>
+        </div>
+    </section>
+
+    <!-- 三、全自动无人开播（6张智播图） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">三</span>全自动无人开播 —— “怎么播”</h2>
+                <p style="color:rgba(255,255,255,0.8);">7×24小时在线 · 多平台一键推流 · 场景自定义 · 商品智能运营</p>
+            </div>
+<div class="image-grid">
+    <img src="img/ai-live/live-01.jpg" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播1'">
+    <img src="img/ai-live/live-02.jpg" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播2'">
+    <img src="img/ai-live/live-03.jpg" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播3'">
+    <img src="img/ai-live/live-04.png" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播4'">
+    <img src="img/ai-live/live-05.png" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播5'">
+    <img src="img/ai-live/live-06.png" alt="全自动开播" class="clickable-image" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=智播6'">
+</div>
+        </div>
+    </section>
+
+    <!-- 四、实时智能互动（文字卡片） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">四</span>实时智能互动 —— “怎么聊”</h2>
+            </div>
+            <div class="feature-text-grid">
+                <div class="feature-text-card">
+                    <h4>💬 弹幕实时应答</h4>
+                    <ul>
+                        <li>0.3秒识别评论</li>
+                        <li>自动欢迎、答疑</li>
+                        <li>感谢礼物、引导下单</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>😊 情绪识别</h4>
+                    <ul>
+                        <li>感知正负向情绪</li>
+                        <li>调整语气和内容</li>
+                        <li>提升停留与转化</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>🎮 互动小游戏</h4>
+                    <ul>
+                        <li>抽奖、问答互动</li>
+                        <li>口令红包</li>
+                        <li>增强直播间活跃度</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>👤 真人无缝接管</h4>
+                    <ul>
+                        <li>智能直播中随时切真人</li>
+                        <li>应对复杂问题</li>
+                        <li>人机协同无痕切换</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 五、数据复盘与优化（文字卡片） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">五</span>数据复盘与优化 —— “播得怎么样”</h2>
+            </div>
+            <div class="feature-text-grid">
+                <div class="feature-text-card">
+                    <h4>📊 实时数据看板</h4>
+                    <ul>
+                        <li>在线人数、互动率</li>
+                        <li>停留时长、转化率</li>
+                        <li>GMV等核心指标</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>🤖 AI复盘诊断</h4>
+                    <ul>
+                        <li>自动分析爆款话术</li>
+                        <li>定位流失节点</li>
+                        <li>识别转化高峰</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>🧪 A/B测试</h4>
+                    <ul>
+                        <li>多脚本/形象/话术</li>
+                        <li>并行测试快速迭代</li>
+                        <li>找到最优方案</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 六、合规与安全（文字卡片） -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2><span class="num">六</span>合规与安全 —— “稳不安全”</h2>
+            </div>
+            <div class="feature-text-grid">
+                <div class="feature-text-card">
+                    <h4>✅ 内容合规审核</h4>
+                    <ul>
+                        <li>实时过滤敏感词</li>
+                        <li>违规内容拦截</li>
+                        <li>账号安全率99.6%</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>📝 直播留痕追溯</h4>
+                    <ul>
+                        <li>全程录屏存档</li>
+                        <li>日志完整保存</li>
+                        <li>满足监管要求</li>
+                    </ul>
+                </div>
+                <div class="feature-text-card">
+                    <h4>🔒 私有化部署</h4>
+                    <ul>
+                        <li>数据本地存储</li>
+                        <li>保护商业隐私</li>
+                        <li>保障IP安全</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一句话总结 -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="golden-quote">
+                <p>“AI数字人直播系统 = 真人级观感 + 全自动干活 + 永不掉线 + 越播越会卖<br>是企业直播降本增效、规模化增长的核心工具。”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 返回链接 -->
+    <div class="back-link-container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> 返回首页</a>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="启跃文化传媒" onerror="this.style.display='none'">
+                    <span>启跃文化传媒</span>
+                </div>
+                <p>科技赋能，引领数字传媒新风尚</p>
+                <p class="copyright">© 2022-2026 赤峰市启跃文化传媒有限公司 | 法人：梁敏 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 图片预览模态框 -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage" alt="预览图片">
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // ========== 形象采集轮播图 ==========
+        const avatarImages = [
+            'img/ai-live/avatar-01.jpg',
+            'img/ai-live/avatar-02.jpg',
+            'img/ai-live/avatar-03.jpg',
+            'img/ai-live/avatar-04.jpg',
+            'img/ai-live/avatar-05.jpg',
+            'img/ai-live/avatar-06.jpg',
+            'img/ai-live/avatar-07.jpg',
+            'img/ai-live/avatar-08.jpg',
+            'img/ai-live/avatar-09.jpg',
+            'img/ai-live/avatar-10.jpg',
+            'img/ai-live/avatar-11.jpg',
+            'img/ai-live/avatar-12.jpg',
+            'img/ai-live/avatar-13.jpg',
+            'img/ai-live/avatar-14.jpg',
+            'img/ai-live/avatar-15.jpg',
+            'img/ai-live/avatar-16.jpg',
+            'img/ai-live/avatar-17.jpg',
+            'img/ai-live/avatar-18.jpg'
+        ];
+        let avatarIndex = 0;
+        const avatarTrack = document.getElementById('avatarTrack');
+
+        // 生成轮播图
+        avatarImages.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = '数字人形象采集';
+            img.className = 'clickable-image';
+            img.onerror = function() { this.src = 'https://placehold.co/800x400/1e293b/ffffff?text=形象采集'; };
+            avatarTrack.appendChild(img);
+        });
+
+        function updateAvatarCarousel() {
+            avatarTrack.style.transform = `translateX(-${avatarIndex * 100}%)`;
+        }
+        function avatarNext() {
+            avatarIndex = (avatarIndex + 1) % avatarImages.length;
+            updateAvatarCarousel();
+        }
+        function avatarPrev() {
+            avatarIndex = (avatarIndex - 1 + avatarImages.length) % avatarImages.length;
+            updateAvatarCarousel();
+        }
+        // 自动轮播
+        setInterval(avatarNext, 4000);
+        updateAvatarCarousel();
+
+        // ========== 动态生成图片网格 ==========
+        function generateImageGrid(containerId, prefix, count) {
+            const container = document.getElementById(containerId);
+            for (let i = 1; i <= count; i++) {
+                const num = String(i).padStart(2, '0');
+                const img = document.createElement('img');
+                img.src = `img/ai-live/${prefix}-${num}.jpg`;
+                img.alt = '功能介绍';
+                img.className = 'clickable-image';
+                img.onerror = function() { this.src = `https://placehold.co/600x400/1e293b/ffffff?text=图${num}`; };
+                container.appendChild(img);
+            }
+        }
+
+    </script>
+</body>
+</html>

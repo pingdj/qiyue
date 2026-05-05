@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>新闻资讯 - 启跃文化传媒</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="启跃文化传媒新闻动态，了解AI智播、数字员工、助农直播最新资讯。">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .news-page-header { padding: 60px 0 40px; text-align: center; }
+        .news-page-header h1 { font-size: 2.5rem; color: #ffffff; margin-bottom: 10px; }
+        .news-card { background: rgba(255,255,255,0.18); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 20px; padding: 25px; margin-bottom: 20px; display: flex; gap: 25px; align-items: flex-start; border: 1px solid rgba(255,255,255,0.3); transition: all 0.2s; text-decoration: none; color: inherit; }
+        .news-card:hover { border-color: #ffffff; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,20,60,0.3); }
+        .news-card-img { flex-shrink: 0; width: 200px; height: 140px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); }
+        .news-card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .news-card-content { flex: 1; display: flex; flex-direction: column; }
+        .news-card-content h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 8px; }
+        .news-meta { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 10px; display: flex; gap: 15px; align-items: center; }
+        .news-meta i { margin-right: 4px; color: #ffffff; }
+        .news-summary { color: rgba(255,255,255,0.9); font-size: 0.95rem; line-height: 1.5; flex-grow: 1; }
+        .read-more { color: #ffffff; font-weight: 600; margin-top: 10px; align-self: flex-start; }
+        .news-card:hover .read-more { opacity: 0.8; }
+        @media (max-width: 640px) { .news-card { flex-direction: column; } .news-card-img { width: 100%; height: 180px; } }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="../img/logo.png" alt="启跃文化传媒 Logo" onerror="this.style.display='none'">
+                <span>启跃文化传媒</span>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html">首页</a>
+                <a href="../index.html#about">公司简介</a>
+                <a href="../index.html#services">核心业务</a>
+                <a href="../index.html#cases">助农案例</a>
+                <a href="../index.html#gallery">公司实景</a>
+                <a href="../news-list.html">新闻资讯</a>
+                <a href="../index.html#contact" class="btn-contact">联系我们</a>
+            </div>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+    <div class="container news-page-header">
+        <span class="section-tag">新闻资讯</span>
+        <h1>公司动态 · 行业前沿</h1>
+        <p class="section-sub" style="color:rgba(255,255,255,0.85); margin-top:10px;">了解启跃文化传媒最新动态，把握数字传媒发展脉搏</p>
+    </div>
+    <section class="section" style="padding-top: 0;">
+        <div class="container" id="newsListContainer">
+            
+            <a href="news/6.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/6.jpg" alt="OpenAI完成Codex重大版本升级" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('OpenAI完成Codex重大版本升级')"></div>
+                <div class="news-card-content">
+                    <h3>OpenAI完成Codex重大版本升级</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-05</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">正式从“代码补全工具”进化为全场景通用计算机操作智能体，定位为“面向所有人的知识工作工具”。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="news/5.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/5.jpg" alt="2026年4月，Meta正式发布Llama 4系列开源大模型" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('2026年4月，Meta正式发布Llam...')"></div>
+                <div class="news-card-content">
+                    <h3>2026年4月，Meta正式发布Llama 4系列开源大模型</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-05</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">包含Mini、Base、Ultra三大版本，是Meta史上最强大的开源多模态模型。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="news/4.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/4.jpg" alt="2026年4月24日，美团正式开放LongCat-2.0-Preview万亿参数大模型内测" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('2026年4月24日，美团正式开放Lon...')"></div>
+                <div class="news-card-content">
+                    <h3>2026年4月24日，美团正式开放LongCat-2.0-Preview万亿参数大模型内测</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-05</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">这是全球首个全程使用国产芯片完成训练、推理的万亿级大模型，英伟达算力占比为0。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="news/3.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/3.jpg" alt="苹果研发投入创下历史新高 加码AI技术全力追赶行业步伐" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('苹果研发投入创下历史新高 加码AI技术全...')"></div>
+                <div class="news-card-content">
+                    <h3>苹果研发投入创下历史新高 加码AI技术全力追赶行业步伐</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-05</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">【环球网科技综合报道】5月1日，根据外媒9to5mac报道，近日苹果正式发布2026财年第二季度财务财报，营收业绩实现两位数同比增长，同时研发投入迎来历史性突破，单季度研发费用创下新高，核心资金重点倾斜人工智能技术研发，全力追赶行业AI发展节奏。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="news/2.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/2.jpg" alt="2026年4月16日，腾讯正式发布并开源混元3D世界模型2.0（HY-World 2.0）" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('2026年4月16日，腾讯正式发布并开源...')"></div>
+                <div class="news-card-content">
+                    <h3>2026年4月16日，腾讯正式发布并开源混元3D世界模型2.0（HY-World 2.0）</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-05</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">实现从“捏物体”到“造完整3D世界”的技术质变。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+            <a href="news/1.html" class="news-card">
+                <div class="news-card-img"><img src="img/news/1.jpg" alt="AI算力大战打响！OpenAI发新模型" onerror="this.src='https://placehold.co/400x280/1e293b/ffffff?text='+encodeURIComponent('AI算力大战打响！OpenAI发新模型')"></div>
+                <div class="news-card-content">
+                    <h3>AI算力大战打响！OpenAI发新模型</h3>
+                    <div class="news-meta">
+                        <span><i class="far fa-calendar-alt"></i> 2026-05-04</span>
+                        <span><i class="fas fa-tag"></i> 行业资讯</span>
+                    </div>
+                    <p class="news-summary">中国网资讯
+
+2026-05-02 11:08天津中国互联网新闻中心
+
+随着 generative AI 发展进入深水区，一场决定行业格局的AI算力资源大战全面打响。5月2日消息，据《纽约时报》报道，OpenAI全新发布GPT-5.5-Cyber安全大模型，凭借充足算力加持实现大范围开放使用，引发全行业对算力储备决定AI上限的深度讨论。</p>
+                    <span class="read-more">阅读全文 →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../img/logo.png" alt="启跃文化传媒" onerror="this.style.display='none'">
+                    <span>启跃文化传媒</span>
+                </div>
+                <p>科技赋能，引领数字传媒新风尚</p>
+                <p class="copyright">© 2022-2026 赤峰市启跃文化传媒有限公司 | 法人：梁敏 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+    <div id="imageModal" class="image-modal"><span class="close-modal">&times;</span><img class="modal-content" id="modalImage" alt="预览图片"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>

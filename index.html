@@ -1,299 +1,123 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>赤峰市启跃文化传媒有限公司 | 科技赋能 · 数字传媒</title>
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <meta name="description" content="启跃文化传媒，专注直播带货、AI智播系统、数字员工系统，助力农产品销售与乡村振兴。位于内蒙古赤峰市宁城县。">
-    <meta name="keywords" content="启跃文化传媒,直播带货,AI智播,数字人直播,助农,赤峰宁城,数字员工,数字分身">
-    <meta name="author" content="赤峰市启跃文化传媒有限公司">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- 主样式表 -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>启跃文化传媒 · 首页</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <img src="img/logo.png" alt="启跃文化传媒 Logo" onerror="this.style.display='none'">
-                <span>启跃文化传媒</span>
-            </div>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">首页</a>
-                <a href="#about">公司简介</a>
-                <a href="#services">核心业务</a>
-                <a href="#cases">助农案例</a>
-                <a href="#gallery">公司实景</a>
-                <a href="news-list.html">新闻资讯</a>
-                <a href="#contact" class="btn-contact">联系我们</a>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero 区域 -->
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>科技赋能，<br>引领<span class="highlight">数字传媒</span>新风尚</h1>
-                <p>赤峰市启跃文化传媒有限公司成立于2022年，深耕直播带货、AI智播与数字员工领域，用技术助力农产品上行，为乡村振兴注入新活力。</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">与我们合作</a>
-                    <a href="#services" class="btn-outline">了解业务</a>
-                </div>
-            </div>
-<div class="hero-image">
-    <video controls autoplay muted loop playsinline 
-           style="width:100%; border-radius:24px; box-shadow:0 20px 35px rgba(0,20,60,0.3); border:2px solid rgba(255,255,255,0.3);">
-        <source src="video/v1.mp4" type="video/mp4">
-        您的浏览器不支持视频播放
-    </video>
-</div>
-        </div>
-    </section>
-
-    <!-- 公司简介 -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">关于我们</span>
-                <h2>赤峰市启跃文化传媒有限公司</h2>
-                <p class="section-sub">注册启航，砥砺前行</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p><strong>赤峰市启跃文化传媒有限公司</strong>于2022年6月7日正式注册成立。从最初的几人小团队，到如今拥有专业多元化的员工队伍；从简陋的办公环境，到现代化、智能化的办公场所，公司经历了从无到有、从小到大的艰难蜕变。</p>
-                    <p>在法人<strong>梁敏</strong>的卓越带领下，公司秉承创新、务实、共赢的发展理念，不断加大技术研发投入，在直播带货、数字科技应用等领域取得了令人瞩目的成就，成为当地传媒行业的领军企业。</p>
-                    <a href="about-detail.html" class="btn-outline" style="display:inline-block; margin-top:16px;">了解更多 →</a>
-                    <div class="about-highlight">
-                        <div class="highlight-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>2022年成立</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-user-tie"></i>
-                            <span>法人：梁敏</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>内蒙古 · 赤峰</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="img/1.png" alt="公司正面图" class="clickable-image" onerror="this.src='https://placehold.co/500x350/e8f5e9/2e7d32?text=公司正面图'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 核心业务 -->
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">我们的服务</span>
-                <h2>三大核心业务 · 科技赋能</h2>
-                <p class="section-sub">以创新技术驱动，为客户提供全方位数字传媒解决方案</p>
-            </div>
-            <div class="services-grid">
-                <!-- 业务1: 直播带货助农 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-video"></i></div>
-                    <h3>直播带货 · 助农销售</h3>
-                    <p>深入农村基层，与农户和合作社紧密合作，通过精心策划的直播活动，将赤峰优质农产品（敖汉小米、宁城苹果、喀喇沁旗香菇等）推向全国市场。打造品牌，提升附加值，助力农民增收致富。</p>
-                    <div class="service-image">
-                        <img src="img/live-room.jpg" alt="助农直播间" class="clickable-image" onerror="this.src='https://placehold.co/300x180/c8e6c9/1b5e20?text=助农直播'">
-                       <a href="live-shopping.html" class="btn-outline" style="display:inline-block; margin-top:12px;">了解更多 →</a>
-                    </div>
-                </div>
-                <!-- 业务2: AI智播系统 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>AI智播系统 · 数字人直播</h3>
-                    <p>自主研发AI智播系统，支持智能语音交互、场景自动切换、多平台同步直播。大幅降低直播门槛，带动当地百姓走上数字人直播道路，实现创业梦想，增加家庭收入。</p>
-                    <div class="service-image">
-                        <img src="img/studio.png" alt="AI智播系统" class="clickable-image" onerror="this.src='https://placehold.co/300x180/c8e6c9/1b5e20?text=AI智播'">
-                        <a href="ai-live.html" class="btn-outline" style="display:inline-block; margin-top:12px;">了解更多 →</a>
-                    </div>
-                </div>
-                <!-- 业务3: AI数字员工 & 数字分身 -->
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-user-astronaut"></i></div>
-                    <h3>AI数字员工 · 数字分身小程序</h3>
-                    <p>AI数字员工系统模拟人类员工行为，智能交互、精准获客，为企业提供数字化营销方案。启跃数字分身小程序让普通百姓轻松制作专业口播短视频，上传照片即可生成数字分身，海量模板一键成片。</p>
-                    <div class="service-image">
-                        <img src="img/ai.png" alt="数字分身小程序" class="clickable-image" onerror="this.src='https://placehold.co/300x180/c8e6c9/1b5e20?text=数字分身'">
-                        <a href="digital-employee.html" class="btn-outline" style="display:inline-block; margin-top:12px;">了解更多 →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 助农案例 / 成果展示 -->
-    <section id="cases" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">助农成果</span>
-                <h2>助力乡村振兴 · 我们一直在行动</h2>
-                <p class="section-sub">将赤峰好物带向全国，让农民的笑容更灿烂</p>
-            </div>
-            <div class="case-showcase">
-                <div class="case-content">
-                    <h3>敖汉小米 · 品牌升级之旅</h3>
-                    <p>团队深入小米种植基地，向观众展示敖汉悠久的种植历史和独特的地理环境。主播现场品尝小米粥，详细介绍口感与营养价值，单场直播销售小米超5000单，品牌知名度大幅提升。</p>
-                    <ul class="case-list">
-                        <li><i class="fas fa-check-circle"></i> 宁城苹果专场直播</li>
-                        <li><i class="fas fa-check-circle"></i> 喀喇沁旗香菇推广</li>
-                        <li><i class="fas fa-check-circle"></i> 万亩番茄园溯源直播</li>
-                    </ul>
-                </div>
-                <div class="case-carousel">
-                    <div class="carousel-container" id="caseCarousel">
-                        <div class="carousel-slides">
-                            <div class="carousel-slide">
-                                <img src="img/map.png" alt="宁城县特产分布地图" class="clickable-image" onerror="this.src='https://placehold.co/500x350/e8f5e9/2e7d32?text=特产分布地图'">
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="img/chanpin.png" alt="敖汉小米展示" class="clickable-image" onerror="this.src='https://placehold.co/500x350/e8f5e9/2e7d32?text=敖汉小米'">
-                            </div>
-                        </div>
-                        <!-- 轮播控制按钮 -->
-                        <button class="carousel-btn prev" id="carouselPrev"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-btn next" id="carouselNext"><i class="fas fa-chevron-right"></i></button>
-                        <!-- 指示点 -->
-                        <div class="carousel-dots" id="carouselDots"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="stats-banner">
-                <div class="stat-block">
-                    <span class="stat-number">30+</span>
-                    <span class="stat-label">合作农户</span>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-number">100+</span>
-                    <span class="stat-label">直播场次</span>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-number">500万+</span>
-                    <span class="stat-label">累计销售额(元)</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 公司实景 -->
-    <section id="gallery" class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">公司环境</span>
-                <h2>现代化办公 · 专业直播基地</h2>
-                <p class="section-sub">位于内蒙古赤峰市宁城县，拥有完善的直播设施与拍摄场地</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="img/men-tou.png" alt="公司门头" class="clickable-image" onerror="this.src='https://placehold.co/350x250/c8e6c9/1b5e20?text=门头'">
-                    <p>公司门头</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/office.png" alt="办公区一角" class="clickable-image" onerror="this.src='https://placehold.co/350x250/c8e6c9/1b5e20?text=办公区'">
-                    <p>办公区</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/live-room.jpg" alt="助农直播间" class="clickable-image" onerror="this.src='https://placehold.co/350x250/c8e6c9/1b5e20?text=助农直播间'">
-                    <p>助农直播间</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/studio.png" alt="拍摄棚一角" class="clickable-image" onerror="this.src='https://placehold.co/350x250/c8e6c9/1b5e20?text=拍摄棚'">
-                    <p>拍摄棚</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="img/jingxuan.png" alt="启跃精选" class="clickable-image" onerror="this.src='https://placehold.co/350x250/c8e6c9/1b5e20?text=启跃精选'">
-                    <p>启跃精选</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系我们 -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">联系合作</span>
-                <h2>欢迎洽谈 · 携手共赢</h2>
-                <p class="section-sub">我们期待与您共创数字传媒新未来</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>联系电话</h4>
-                            <p>13337156989</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>电子邮箱</h4>
-                            <p>15247667587@163.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>办公地址</h4>
-                            <p>内蒙古赤峰市宁城县大城子镇瓦南村万亩番茄园培训中心电商基地</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-pin"></i>
-                        <div>
-                            <h4>第二基地</h4>
-                            <p>内蒙古赤峰市宁城县五化镇鸽子山村移民小区电商基地</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-qr">
-                    <div class="qr-card">
-                        <img src="img/service.png" alt="微信客服" class="clickable-image" onerror="this.src='https://placehold.co/200x200/e8f5e9/2e7d32?text=微信客服'">
-                        <p>扫码添加微信 · 立即咨询</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="img/logo.png" alt="启跃文化传媒" onerror="this.style.display='none'">
-                    <span>启跃文化传媒</span>
-                </div>
-                <p>科技赋能，引领数字传媒新风尚</p>
-                <p class="copyright">© 2022-2026 赤峰市启跃文化传媒有限公司 | 法人：梁敏 | 保留所有权利</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 图片预览模态框 -->
-    <div id="imageModal" class="image-modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImage" alt="预览图片">
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-area">
+        <img src="images/logo.png" alt="启跃文化传媒" class="logo-img">
+        <span class="logo-text">启跃文化传媒</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="about.html">公司简介</a>
+        <a href="business.html">核心业务</a>
+        <a href="service.html">运营服务</a>
+        <a href="news.html">新闻资讯</a>
+        <a href="contact.html">关于我们</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+  <div class="hero-slider">
+    <div class="slider-item active" style="background-image: url('images/shouye/slider-1.jpg');"></div>
+    <div class="slider-item" style="background-image: url('images/shouye/slider-2.jpg');"></div>
+    <div class="slider-item" style="background-image: url('images/shouye/slider-3.jpg');"></div>
+    <div class="slider-dots">
+      <span class="slider-dot active" data-index="0"></span>
+      <span class="slider-dot" data-index="1"></span>
+      <span class="slider-dot" data-index="2"></span>
+    </div>
+  </div>
+
+  <section>
+    <div class="container" style="display:flex; gap:40px; flex-wrap:wrap; align-items:center;">
+      <div style="flex:1; min-width:280px;">
+        <h2 style="font-size:2.4rem; font-weight:800; text-align:center;">公司简介</h2>
+        <p style="margin:20px 0; color:#334155;">
+          赤峰市启跃文化传媒有限公司成立于2022年6月7日，立足宁城、深耕本土，紧抓数字经济与新媒体发展浪潮，是区域内极具创新活力与综合实力的数字化传媒领军企业。
+ 
+自创立以来，在法人梁敏的带领下，公司秉持专业、诚信、创新、赋能的经营理念，以科技创新为核心驱动力，持续加大技术研发、人才引进与设备升级投入；团队凝心聚力、深耕细作，完成了从初创小队到专业全能运营团队、从单一业务到多元布局的跨越式成长，运营、服务、技术体系日趋完善。
+ 
+公司主营数字传媒运营、短视频内容创作、直播电商带货、农产品助农推广、品牌全案宣传等业务，依托AI智能直播、数字人应用等前沿技术，以内容为核、科技为翼，赋能本土企业品牌升级、助力乡村振兴，激活区域市场新动能。
+ 
+        </p>
+        <a href="about.html" class="btn-outline">查看详情 <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div style="flex:1; min-width:280px;">
+        <img src="images/shouye/home-company.jpg" alt="公司图片" style="width:100%; border-radius:24px; cursor:pointer;" onclick="openLightbox(this)">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">三大核心业务</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="images/shouye/business-ai-live.jpg" alt="AI智播">
+        <h3>AI智播系统</h3>
+        <p>自主研发AI智播系统，支持智能语音交互、场景自动切换、多平台同步直播。大幅降低直播门槛，带动当地百姓走上数字人直播道路。</p>
+        <a href="business.html#ai-live" class="btn-primary">查看详情</a>
+      </div>
+      <div class="feature-card">
+        <img src="images/shouye/business-ai-staff.jpg" alt="AI超级员工">
+        <h3>AI超级员工</h3>
+        <p>AI超级智能员工，自主执行、多岗全能、7×24在线、持续学习，能替代3-5人工作量，覆盖全行业全岗位。</p>
+        <a href="business.html#ai-staff" class="btn-primary">查看详情</a>
+      </div>
+      <div class="feature-card">
+        <img src="images/shouye/business-mini-program.jpg" alt="微信小程序">
+        <h3>AI智能口播小程序</h3>
+        <p>手机端一键生成AI配音+口播视频+数字人播报，轻量化、免设备、微信内直接用，快速出片。</p>
+        <a href="business.html#mini-program" class="btn-primary">查看详情</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">运营服务</h2>
+    <div class="features-grid">
+      <div class="feature-card" onclick="location.href='service.html#ai-live-training'">
+        <img src="images/shouye/service-ai-live.jpg" alt="AI智播培训">
+      </div>
+      <div class="feature-card" onclick="location.href='service.html#ai-staff-training'">
+        <img src="images/shouye/service-ai-staff.jpg" alt="AI超级员工培训">
+      </div>
+      <div class="feature-card" onclick="location.href='service.html#one-person-company'">
+        <img src="images/shouye/service-one-person.jpg" alt="一人搭建公司">
+      </div>
+      <div class="feature-card" onclick="location.href='service.html#live-stream-training'">
+        <img src="images/shouye/service-live-stream.jpg" alt="真人直播带货培训">
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-info"><strong>咨询电话</strong><br>13337156989</div>
+      <div class="footer-info"><strong>服务电话</strong><br>17504866624</div>
+      <div class="footer-info"><strong>公司邮箱</strong><br>13337156989#163.com</div>
+    </div>
+    <hr class="footer-line">
+    <div class="footer-bottom">
+      <p>办公地址：内蒙古赤峰市宁城县大城子镇瓦南村万亩番茄园培训中心电商基地</p>
+      <p>第二基地：内蒙古赤峰市宁城县五化镇鸽子山村移民小区电商基地</p>
+      <p style="margin-top:12px;">© 2026 赤峰市启跃文化传媒有限公司 | 科技赋能，携手共赢</p>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-arrow prev" onclick="event.stopPropagation(); navigateLightbox(-1)">&#10094;</button>
+    <button class="lightbox-arrow next" onclick="event.stopPropagation(); navigateLightbox(1)">&#10095;</button>
+    <img id="lightboxImg" src="" alt="预览图">
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

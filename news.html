@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新闻资讯 · 启跃文化传媒</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo-area">
+        <img src="images/logo.png" alt="启跃文化传媒" class="logo-img">
+        <span class="logo-text">启跃文化传媒</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="about.html">公司简介</a>
+        <a href="business.html">核心业务</a>
+        <a href="service.html">运营服务</a>
+        <a href="news.html">新闻资讯</a>
+        <a href="contact.html">关于我们</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-banner" style="background-image: url('images/xinwenzixun/news-banner.jpg');"></div>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">新闻资讯</h2>
+      <div id="newsListContainer"></div>
+      <div id="newsPagination" class="pagination"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-info"><strong>咨询电话</strong><br>13337156989</div>
+      <div class="footer-info"><strong>服务电话</strong><br>17504866624</div>
+      <div class="footer-info"><strong>公司邮箱</strong><br>13337156989#163.com</div>
+    </div>
+    <hr class="footer-line">
+    <div class="footer-bottom">
+      <p>办公地址：内蒙古赤峰市宁城县大城子镇瓦南村万亩番茄园培训中心电商基地</p>
+      <p>第二基地：内蒙古赤峰市宁城县五化镇鸽子山村移民小区电商基地</p>
+      <p style="margin-top:12px;">© 2026 赤峰市启跃文化传媒有限公司 | 科技赋能，携手共赢</p>
+    </div>
+  </footer>
+
+  <!-- 图片灯箱（新闻卡片内图片不再触发灯箱，仅用于其他页面） -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <button class="lightbox-arrow prev" onclick="event.stopPropagation(); navigateLightbox(-1)">&#10094;</button>
+    <button class="lightbox-arrow next" onclick="event.stopPropagation(); navigateLightbox(1)">&#10095;</button>
+    <img id="lightboxImg" src="" alt="预览图">
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // 新闻数据（新增新闻只需在数组最前面添加对象即可）
+    const newsData = [
+       {
+        title: '数字赋能新质生产力｜宁城县领导一行莅临启跃文化传媒调研AI数字经济发展',
+        date: '2026-4-18',
+        summary: '宁城县领导一行莅临赤峰市启跃文化传媒有限公司，实地调研公司AI数字人、智能直播系统及数字技术运营平台建设情况',
+        imgs: ['images/xinwenzixun/15/news-15-1.jpg', 'images/xinwenzixun/15/news-15-2.jpg', 'images/xinwenzixun/15/news-15-3.jpg'],
+        link: 'news/15.html'
+      },
+       {
+        title: '缅怀革命先烈 传承红色精神｜赤峰市启跃文化传媒参与宁城县工商联国庆红色教育活动',
+        date: '2025-10-26',
+        summary: '赤峰市启跃文化传媒有限公司受邀参与宁城县工商联组织的“缅怀革命先烈·赓续红色血脉”主题红色教育活动',
+        imgs: ['images/xinwenzixun/14/news-14-1.jpg', 'images/xinwenzixun/14/news-14-2.jpg', 'images/xinwenzixun/14/news-14-3.jpg'],
+        link: 'news/14.html'
+      },
+       {
+        title: '情暖老兵心 致敬峥嵘岁月｜宁城县工商联联合启跃传媒开展百岁老红军走访慰问活动',
+        date: '2025-07-3',
+        summary: '宁城县工商联联合赤峰市启跃文化传媒有限公司开展“致敬老兵·情暖宁城”走访慰问活动',
+        imgs: ['images/xinwenzixun/13/news-13-1.jpg', 'images/xinwenzixun/13/news-13-2.jpg', 'images/xinwenzixun/13/news-13-3.jpg'],
+        link: 'news/13.html'
+      },
+       {
+        title: '红果飘香助农增收｜赤峰启跃传媒6·18番茄直播助农专场圆满落幕',
+        date: '2025-6-18',
+        summary: '2025 年 6 月 18 日，赤峰市启跃文化传媒有限公司打造的优质番茄直播助农专场圆满举办',
+        imgs: ['images/xinwenzixun/12/news-12-1.jpg', 'images/xinwenzixun/12/news-12-2.jpg', 'images/xinwenzixun/12/news-12-3.jpg'],
+        link: 'news/12.html'
+      },
+       {
+        title: '传承五四薪火 赋能青春创业——宁城县纪念五四运动106周年暨青年就业创业服务品牌发布仪式圆满举办',
+        date: '2025-05-04',
+        summary: '为深入弘扬五四精神，激发新时代青年创新创业活力，搭建青年成长成才服务平台，',
+        imgs: ['images/xinwenzixun/11/news-11-1.jpg', 'images/xinwenzixun/11/news-11-2.jpg', 'images/xinwenzixun/11/news-11-3.jpg'],
+        link: 'news/11.html'
+      },
+       {
+        title: '启跃传媒荣获宁城县工商联执委单位，助力县域民营经济高质量发展',
+        date: '2025-01-18',
+        summary: '在宁城县工商业联合会（总商会）全体会议上，宁城县启跃传媒有限公司正式被授予“执委单位”牌匾，',
+        imgs: ['images/xinwenzixun/10/news-10-1.jpg', 'images/xinwenzixun/10/news-10-2.jpg', 'images/xinwenzixun/10/news-10-3.jpg'],
+        link: 'news/10.html'
+      },
+       {
+        title: '粉香飘云端 助农暖人心｜赤峰启跃传媒瓦南村粉条直播助农专场圆满举办',
+        date: '2024-09-5',
+        summary: '赤峰市启跃文化传媒有限公司走进赤峰市大城镇瓦南村，开展瓦南村粉条直播助农专场活动，',
+        imgs: ['images/xinwenzixun/9/news-09-1.jpg', 'images/xinwenzixun/9/news-09-2.jpg', 'images/xinwenzixun/9/news-09-3.jpg'],
+        link: 'news/09.html'
+      },
+     {
+        title: '数字赋能乡村 直播点亮增收｜赤峰启跃传媒开展宁城农户直播技能培训活动',
+        date: '2024-01-26',
+        summary: '为帮助本地农户掌握电商直播技能，打通农产品线上销售新渠道',
+        imgs: ['images/xinwenzixun/8/news-08-1.jpg', 'images/xinwenzixun/8/news-08-2.jpg', 'images/xinwenzixun/8/news-08-3.jpg'],
+        link: 'news/08.html'
+      },
+      {
+        title: '政企同心暖企心 砥砺奋进促振兴｜县级领导走访慰问启跃传媒 为企业发展注入暖心动力',
+        date: '2023-10-28',
+        summary: '宁城县县级领导及村委干部一行专程莅临赤峰市启跃文化传媒有限公司',
+        imgs: ['images/xinwenzixun/7/news-07-1.jpg', 'images/xinwenzixun/7/news-07-2.jpg', 'images/xinwenzixun/7/news-07-3.jpg'],
+        link: 'news/07.html'
+      },
+      {
+        title: '观摩交流促提升 数字赋能谋发展｜宁城县工商联组织商户代表莅临启跃传媒参观学习',
+        date: '2023-08-10',
+        summary: '为推动县域民营经济创新发展，助力传统商户拥抱数字经济、实现转型升级',
+        imgs: ['images/xinwenzixun/6/news-06-1.jpg', 'images/xinwenzixun/6/news-06-2.jpg', 'images/xinwenzixun/6/news-06-3.jpg'],
+        link: 'news/06.html'
+      },
+     {
+        title: '政企联动搭平台 村民探路电商新未来｜2023年6月乡镇组织村民走进启跃传媒参观学习',
+        date: '2023-06-25',
+        summary: '为抢抓数字经济发展机遇，拓宽村民增收致富渠道，助力乡村产业振兴，',
+        imgs: ['images/xinwenzixun/5/news-05-1.jpg', 'images/xinwenzixun/5/news-05-2.jpg', 'images/xinwenzixun/5/news-05-3.jpg'],
+        link: 'news/05.html'
+      },
+      {
+        title: '“瓜甜飘香云端助农 赤峰启跃传媒4·18甜瓜直播助农专场圆满收官',
+        date: '2023-4-18',
+        summary: '抢抓春季时令瓜果上市黄金期，助力本地瓜农拓宽销路、实现增收，',
+        imgs: ['images/xinwenzixun/4/news-04-1.jpg', 'images/xinwenzixun/4/news-04-2.jpg', 'images/xinwenzixun/4/news-04-3.jpg'],
+        link: 'news/04.html'
+      },
+      {
+        title: '电商助农 油香万家——赤峰市启跃文化传媒3·18葵花油直播助农专场圆满举办',
+        date: '2023-3-18',
+        summary: '为助力赤峰本地特色农产品拓宽销售渠道，打通农户与市场的线上连接通道，助力乡村产业振兴',
+        imgs: ['images/xinwenzixun/3/news-03-1.jpg', 'images/xinwenzixun/3/news-03-2.jpg', 'images/xinwenzixun/3/news-03-3.jpg'],
+        link: 'news/03.html'
+      },
+      {
+        title: '红果映直播间 助农暖人心｜赤峰启跃传媒宁城县苹果直播助农专场圆满举办',
+        date: '2022-11-4',
+        summary: '为助力宁城本地苹果拓宽线上销售渠道，帮助果农解决集中上市期的销售难题',
+        imgs: ['images/xinwenzixun/2/news-02-1.jpg', 'images/xinwenzixun/2/news-02-2.jpg', 'images/xinwenzixun/2/news-02-3.jpg'],
+        link: 'news/02.html'
+      },
+      {
+        title: '村民走进启跃传媒 共探电商增收新路径',
+        date: '2022-08-16',
+        summary: '由启跃传媒开发的“赤峰市启跃文化传媒有限公司正式落成并全面投入运营。',
+        imgs: ['images/xinwenzixun/1/news-01-1.jpg', 'images/xinwenzixun/1/news-01-2.jpg', 'images/xinwenzixun/1/news-01-3.jpg'],
+        link: 'news/01.html'
+      }
+    ];
+
+    const NEWS_PER_PAGE = 6;
+
+    function renderNewsList(page = 1) {
+      const container = document.getElementById('newsListContainer');
+      const totalPages = Math.ceil(newsData.length / NEWS_PER_PAGE);
+      const start = (page - 1) * NEWS_PER_PAGE;
+      const pageItems = newsData.slice(start, start + NEWS_PER_PAGE);
+
+      let html = '';
+      pageItems.forEach((item, idx) => {
+        const sliderId = `newsSlider_${start + idx}`;
+        html += `
+          <a href="${item.link}" class="news-card" style="display:flex; gap:20px; margin-bottom:30px; background:white; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.04); flex-wrap:wrap; text-decoration:none; color:inherit;">
+            <div style="flex:1; min-width:280px;">
+              <div class="news-img-slider" id="${sliderId}">
+                ${item.imgs.map((src, i) => `<img src="${src}" class="slide ${i === 0 ? 'active' : ''}">`).join('')}
+              </div>
+              <div class="news-dots">
+                ${item.imgs.map((_, i) => `<span class="news-dot ${i === 0 ? 'active' : ''}" data-index="${i}" data-slider="${sliderId}"></span>`).join('')}
+              </div>
+            </div>
+            <div style="flex:2; min-width:280px;">
+              <h3>${item.title}</h3>
+              <small>${item.date}</small>
+              <p class="news-summary">${item.summary}</p>
+              <span class="btn-read-more" style="display:inline-block; margin-top:8px;">阅读全文 →</span>
+            </div>
+          </a>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      // 初始化当前页的所有新闻内嵌轮播
+      pageItems.forEach((_, idx) => {
+        initSingleNewsSlider(`newsSlider_${start + idx}`);
+      });
+
+      // 渲染分页按钮
+      const pagContainer = document.getElementById('newsPagination');
+      let pagHtml = '';
+      for (let i = 1; i <= totalPages; i++) {
+        pagHtml += `<button class="${i === page ? 'active-page-btn' : ''}" onclick="renderNewsList(${i})">${i}</button>`;
+      }
+      pagContainer.innerHTML = pagHtml;
+    }
+
+    // 初始化单个新闻内嵌轮播（图片仅自动轮播，不绑定灯箱事件，点击会跟随链接跳转）
+    function initSingleNewsSlider(sliderId) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+      const slides = slider.querySelectorAll('.slide');
+      const dots = slider.parentElement.parentElement.querySelectorAll('.news-dot');
+      if (slides.length === 0) return;
+      let current = 0;
+      function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        slides[index].classList.add('active');
+        if (dots[index]) dots[index].classList.add('active');
+      }
+      setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 4000);
+      dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation(); // 防止触发a标签跳转
+          current = parseInt(e.target.dataset.index);
+          showSlide(current);
+        });
+      });
+    }
+
+    // 页面加载时渲染第一页
+    window.addEventListener('DOMContentLoaded', () => {
+      renderNewsList(1);
+    });
+  </script>
+</body>
+</html>

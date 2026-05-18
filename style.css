@@ -685,6 +685,20 @@ section {
 
 /* 响应式：手机端才显示汉堡菜单，并隐藏桌面导航 */
 @media (max-width: 768px) {
+  /* 导航容器不换行，确保汉堡按钮与Logo同行 */
+  .nav-container {
+    flex-wrap: nowrap;
+  }
+  
+  .logo-area {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  
+  .menu-toggle {
+    flex-shrink: 0;
+  }
+
   .navbar .nav-links {
     display: none !important;
   }
@@ -715,8 +729,11 @@ section {
   }
 
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;   /* 缩小字体，避免因系统字体放大导致溢出 */
     font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .footer-top {
@@ -738,5 +755,10 @@ section {
     right: 60px;
     min-width: 200px;
     padding: 14px 16px;
+  }
+
+  /* 关于我们页面图片在移动端下移到文字下方，清除顶部空白 */
+  .about-image {
+    padding-top: 0 !important;
   }
 }

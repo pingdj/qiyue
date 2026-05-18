@@ -38,7 +38,7 @@
     <div class="footer-top">
       <div class="footer-info"><strong>咨询电话</strong><br>13337156989</div>
       <div class="footer-info"><strong>服务电话</strong><br>17504866624</div>
-      <div class="footer-info"><strong>公司邮箱</strong><br>13337156989#163.com</div>
+      <div class="footer-info"><strong>公司邮箱</strong><br>13337156989@163.com</div>
     </div>
     <hr class="footer-line">
     <div class="footer-bottom">
@@ -169,6 +169,7 @@
 
     const NEWS_PER_PAGE = 6;
 
+    // 根据锚点或指定页面渲染新闻列表
     function renderNewsList(page = 1) {
       const container = document.getElementById('newsListContainer');
       const totalPages = Math.ceil(newsData.length / NEWS_PER_PAGE);
@@ -178,8 +179,9 @@
       let html = '';
       pageItems.forEach((item, idx) => {
         const sliderId = `newsSlider_${start + idx}`;
+        const newsId = item.link.replace(/^news\/|\.html$/g, '');
         html += `
-          <a href="${item.link}" class="news-card" style="display:flex; gap:20px; margin-bottom:30px; background:white; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.04); flex-wrap:wrap; text-decoration:none; color:inherit;">
+          <a id="news-${newsId}" href="${item.link}" class="news-card" style="display:flex; gap:20px; margin-bottom:30px; background:white; border-radius:20px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,0.04); flex-wrap:wrap; text-decoration:none; color:inherit;">
             <div style="flex:1; min-width:280px;">
               <div class="news-img-slider" id="${sliderId}">
                 ${item.imgs.map((src, i) => `<img src="${src}" class="slide ${i === 0 ? 'active' : ''}">`).join('')}
@@ -212,9 +214,20 @@
         pagHtml += `<button class="${i === page ? 'active-page-btn' : ''}" onclick="renderNewsList(${i})">${i}</button>`;
       }
       pagContainer.innerHTML = pagHtml;
+
+      // ★ 分页后瞬间回到新闻列表顶部（无动画）
+      window.scrollTo({ top: document.getElementById('newsListContainer').offsetTop - 100, behavior: 'auto' });
+
+      // 如果 URL 中有锚点，渲染完成后平滑滚动到对应卡片
+      if (window.location.hash) {
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
     }
 
-    // 初始化单个新闻内嵌轮播（图片仅自动轮播，不绑定灯箱事件，点击会跟随链接跳转）
+    // 初始化单个新闻内嵌轮播
     function initSingleNewsSlider(sliderId) {
       const slider = document.getElementById(sliderId);
       if (!slider) return;
@@ -234,16 +247,24 @@
       }, 4000);
       dots.forEach(dot => {
         dot.addEventListener('click', (e) => {
-          e.stopPropagation(); // 防止触发a标签跳转
+          e.stopPropagation();
           current = parseInt(e.target.dataset.index);
           showSlide(current);
         });
       });
     }
 
-    // 页面加载时渲染第一页
+    // 页面加载时根据锚点自动定位到对应新闻所在的分页
     window.addEventListener('DOMContentLoaded', () => {
-      renderNewsList(1);
+      let targetPage = 1;
+      if (window.location.hash) {
+        const newsId = window.location.hash.replace('#news-', '');
+        const foundIndex = newsData.findIndex(item => item.link === `news/${newsId}.html`);
+        if (foundIndex !== -1) {
+          targetPage = Math.floor(foundIndex / NEWS_PER_PAGE) + 1;
+        }
+      }
+      renderNewsList(targetPage);
     });
   </script>
 </body>
